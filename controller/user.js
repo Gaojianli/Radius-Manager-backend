@@ -8,13 +8,7 @@ module.exports = {
   login: async ctx => {
     const key = ctx.request.body.adminKey
     if (key === (process.env.ADMIN_KEY || config.adminKey)) {
-      ctx.cookies.set('admin', key, {
-        domain: config.domain,
-        httpOnly: false,
-        signed: false,
-        maxAge: 10 * 60 * 1000,
-        SameSite: false
-      })
+      ctx.cookies.set('admin', key)
       ctx.request.status = 200
       ctx.body = {
         code: 200,
