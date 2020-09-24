@@ -1,14 +1,19 @@
 'use strict'
 const query = require('../utils/query')
+const config = require('../config/config')
 const sql = require('../utils/sql')
 const crypto = require('crypto')
 
 module.exports = {
   login: async ctx => {
     const key = ctx.request.body.adminKey
-    if (key === process.env.ADMIN_KEY) {
+    if (key === (process.env.ADMIN_KEY || config.adminKey)) {
       ctx.cookies.set('admin', key, {
-        domain: '*'
+        domain: config.domain,
+        httpOnly: false,
+        signed: false,
+        maxAge: 10 * 60 * 1000,
+        SameSite: false
       })
       ctx.request.status = 200
       ctx.body = {

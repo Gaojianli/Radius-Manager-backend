@@ -1,5 +1,7 @@
 const mysql = require('./mysql_conf')
 module.exports = {
   adminKey: 'your admin key',
+  debug: false,
+  domain: 'app://.', // CORS domain, I don't have a domain with IPC license, so I set it to only worked with electron 
   mysql
 }

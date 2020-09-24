@@ -12,10 +12,10 @@ app.use(bodyparser({
   enableTypes: ['json', 'form', 'text']
 }))
 app.use(json())
-app.use(logger())
+if (config.debug) { app.use(logger()) }
 app.use(cors({
-  origin: function (ctx) {
-    return 'app://.' // only work for electron
+  origin: function (_) {
+    if (config.debug) { return '*' } else { return config.domain } // only work for electron
   },
   maxAge: 5,
   credentials: true,
