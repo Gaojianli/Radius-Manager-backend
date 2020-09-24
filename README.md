@@ -6,7 +6,7 @@
   </a>
 </p>
 
-> A simple backend for freeradius3, provide simple user managment which is enough for usual family.
+> A simple backend for freeradius3, provide simple user managment which is enough for usual family. This program is worked with its [frontend](https://github.com/Gaojianli/Radius-Manager)
 
 ## Install
 
@@ -22,6 +22,8 @@ cp config/mysql_conf.js.example mysql_conf.js
 <Modify your config..>
 npm run start
 ```
+
+**Notice**: If you want to work with electron version frontend, you should set domain as `app://.` in the config.
 
 ## Author
 
