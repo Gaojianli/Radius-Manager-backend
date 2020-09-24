@@ -1,0 +1,5 @@
+const mysql = require('./mysql_conf')
+module.exports = {
+  adminKey: 'your admin key',
+  mysql
+}
